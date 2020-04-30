@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,11 @@
           }
         }
       }
-    }},
-  "defaultProject": "revolver-joe"
+    }
+  },
+  "defaultProject": "revolver-joe",
+  "cli": {
+    "analytics": "dd2b673a-31e6-4dcd-9b7b-4b6a111875e9"
+  }
 }
+
