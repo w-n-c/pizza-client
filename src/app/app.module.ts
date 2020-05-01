@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RegisteredCustomerComponent } from './components/registered-customer/registered-customer.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,7 +15,9 @@ import { PizzaOrderComponent } from './components/pizza-order/pizza-order.compon
   declarations: [
     AppComponent,
     LoginComponent,
-    PizzaOrderComponent
+    PizzaOrderComponent,
+    RegisteredCustomerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
