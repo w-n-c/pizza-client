@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "revolver-joe"
+    }
+  },
+  "defaultProject": "revolver-joe",
+  "cli": {
+    "analytics": "7c32a16d-c8bd-431f-a031-bbeb337a9d7a"
+  }
 }
