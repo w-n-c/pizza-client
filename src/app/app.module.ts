@@ -9,6 +9,8 @@ import { RegisteredCustomerComponent } from './components/registered-customer/re
 import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PizzaOrderComponent } from './components/pizza-order/pizza-order.component';
+import { FormatNamePipe } from './pipes/format-name.pipe';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { PizzaOrderComponent } from './components/pizza-order/pizza-order.compon
     LoginComponent,
     PizzaOrderComponent,
     RegisteredCustomerComponent,
-    LoginComponent
+    LoginComponent,
+    FormatNamePipe,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

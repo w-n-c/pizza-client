@@ -1,20 +1,12 @@
-<div id="heading"  style="text-align: center;">
-    <h1>Joe’s Revolver</h1>
-    <h4>Pies and Bullets</h4>
-</div>
-
+<h1 style="text-align: center;">Sign Up</h1>
 <div class="container">
     <div class="row">
-        <div class="col-9">
-            <img class="img-fluid" src="../../../assets/images/pizza_gun.jpg " alt="pizza picture">
-            <div style="text-align: center;">
-                <br>
-                <button type="button" class="btn btn-danger btn-lg" (click)="orderNow()">Order Now!</button>
-            </div>
+        <div class="col-4">
+
         </div>
-        <div class="col-3">
-            <br>
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="col-4">
+           <br>
+            <form [formGroup]="signupForm" (ngSubmit)="enroll()">
                 <div class="form-group">
                     <label>Username</label>
                     <input type="email" class="form-control" formControlName="username" aria-describedby="emailHelp" placeholder="Enter username">
@@ -25,11 +17,11 @@
                 </div>
                 <div style="text-align: center;">
                     <button type="submit" class="btn btn-primary">Sign In</button>
-                    <hr>
-                    <button (click)="signup()" type="button" class="btn btn-secondary">Sign up</button>
                 </div>
             </form>
         </div>
+        <div class="col-4">
+
+        </div>
     </div>
 </div>
-
