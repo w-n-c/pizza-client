@@ -49,7 +49,6 @@ export class PizzaOrderComponent implements OnInit {
     const selectedToppingsIds = this.toppingForm.value.toppings
     .map((v,i) => (v ? this.toppingList[i].id : null))
     .filter(v=> v !==null);
-    console.log(selectedToppingsIds);
 
     let pizzaString ='Pizza with ';
     let pizzaPrice = 8;
@@ -58,7 +57,6 @@ export class PizzaOrderComponent implements OnInit {
       pizzaPrice += this.toppingList[x-1].price;
     }
     
-    console.log(pizzaString+" "+pizzaPrice);
     this.pizza["name"] = pizzaString;
     this.pizza["price"] = pizzaPrice;
     console.log(this.pizza);
@@ -69,11 +67,9 @@ export class PizzaOrderComponent implements OnInit {
 
   calculateTotal(){
     this.totalPrice = 0;
-    console.log(this.pizzaList);
     for(let p of this.pizzaList){
       this.totalPrice += p.price;
     }
-    console.log(this.totalPrice)
   }
 
   removePizza(p){
@@ -81,16 +77,11 @@ export class PizzaOrderComponent implements OnInit {
     if(index > -1){
       this.pizzaList.splice(index,1);
     }
-    console.log(this.pizzaList);
     this.calculateTotal();
   }
 
   submitOrder(){
     // make a post request to submit order
-  }
-
-  checkToppings(){
-    console.log(this.toppingForm)
   }
 
   ngOnInit(): void {

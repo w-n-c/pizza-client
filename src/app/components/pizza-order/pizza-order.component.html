@@ -16,13 +16,14 @@
         </div>
         <div class="col-6">
             <h2>View Order Here</h2>
-            <ul>
-                <li *ngFor="let pizza of pizzaList">
-                    <span>{{pizza.name}}--{{pizza.price | currency}}    </span>
-                    <a (click)="removePizza(pizza)">Delete</a>
-                </li>
-            </ul>
-            <p>Total: {{totalPrice}}</p>
+            <table class="table">
+                <tr *ngFor="let pizza of pizzaList">
+                    <td>{{pizza.name | formatName}}</td>
+                    <td>{{pizza.price | currency}}</td>
+                    <td><a class="delete" (click)="removePizza(pizza)">Delete</a></td>
+                </tr>
+            </table>
+            <p>Total: {{totalPrice | currency}}</p>
             <button (click)=submitOrder()>Submit Order</button>
         </div>
     </div>
