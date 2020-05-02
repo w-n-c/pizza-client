@@ -1,0 +1,212 @@
+<html>
+
+<head>
+  <style>
+    .column_1 {
+      margin-top: 15px;
+      width: 30%;
+      left: 23.65%;
+      top: 79%;
+      font-size: 30px;
+      color: whitesmoke;
+      border-color: orange;
+      border-style: solid;
+    }
+
+    .column_2 {
+      width: 30%;
+      top: 64.1%;
+      font-size: 30px;
+      color: whitesmoke;
+      border-color: orange;
+      border-style: solid;
+    }
+
+
+
+    h1.heading {
+      background-color: orange;
+      color: blue;
+      border-style: solid;
+    }
+
+    .image {
+      opacity: 1;
+      display: block;
+      position: absolute;
+      top: 7%;
+      left: .5%;
+      width: 160px;
+      height: 120px;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+
+    .middle {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: 160px;
+      height: 120px;
+      transition: .5s ease;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .container:hover .image {
+      opacity: 0.3;
+      border-style: solid;
+      animation: outline 1000ms ease-in-out infinite;
+      animation: flicker-background 1000ms ease-in infinite;
+    }
+
+    @keyframes outline {
+      100% {
+        border-color: gold;
+      }
+
+      0% {
+        border-color: blue;
+      }
+
+
+    }
+
+    @keyframes flicker-background {
+      50% {
+        transform: scale(0.98);
+      }
+    }
+
+    .container:hover .middle {
+      opacity: 1;
+    }
+
+    .text {
+      font-size: 24px;
+      color: whitesmoke;
+      position: relative;
+      top: 30%;
+      left: 5%;
+      font-size: 16px;
+      padding: 16px 32px;
+    }
+  </style>
+
+  <style title=""></style>
+</head>
+
+<body style="background: url(Dark-Brown-Wood-Desktop-Wallpaper-Background.jpg); background-size: cover;">
+  <div>
+    <div class="heading" id="head" style="border-bottom-width: 3px;" sytle="">
+      <h1 class="heading" style="margin-top: 1px; margin-bottom: 1px; border-top-width: 3px; border-left-width: 2px;">
+        Joe's Revolver</h1>
+    </div>
+
+    <div class="ok"
+      style='left: 32%; top: 20%; width: 47%; background-image: url("grungy-rough-old-worn-parchment-paper.jpg"); margin-top: 45px; position: absolute;'>
+      <h1 style="text-align: center;">- Title -</h1>
+      <p id="middletext">
+        <p> </p>aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaa
+        Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      </p>
+
+      <p> </p>
+    </div>
+
+    <div class="wanted">
+      <img style="position: absolute; top: 54.5%; left: 79.96%; width: 20%; height: 45%;" src="pizza wanted.png">
+    </div>
+    <div class="container" id="img1" style="top: 7%; left: .3%; width: 160px; height: 120px;">
+      <img class="image" src="Pizza chessemexican-and-pepperoni.jpg">
+      <div class="middle">
+        <div class="text" id="menu" href="https://restfulapi.net/rest-architectural-constraints/">Order Now!</div>
+      </div>
+    </div>
+
+    <div class="container" id="img2" style="position:absolute; top: 6.1%; left: 8.6%; width: 160px; height: 129px;">
+      <img class="image" src="lastword.png">
+      <div class="middle">
+        <div class="text" id="menu" href="https://restfulapi.net/rest-architectural-constraints/">Location</div>
+      </div>
+    </div>
+
+    <div class="container" style="position:absolute; top: 6.1%; left: 16.9%; width: 160px; height: 129px;">
+      <img class="image" id="img3" src="sign in 166004.jpg">
+      <div class="middle">
+        <div class="text" id="menu" href="https://restfulapi.net/rest-architectural-constraints/">Sign in / Sign up /Log
+          out</div>
+      </div>
+    </div>
+
+    <div class="container" style="position:absolute; top: 6.1%; left: 25.1%; width: 160px; height: 129px;">
+      <img class="image" id="img4" src="Pizza menu and-pepperoni.jpg">
+      <div class="middle">
+        <div class="text" id="menu" href="https://restfulapi.net/rest-architectural-constraints/">menu </div>
+      </div>
+    </div>
+
+    <div class="column_1">
+      Address: <br>
+      Brooklyn, NY 11234 <br>
+      Phone : (XXX) XXX-XXXX<br>
+      Directions : <a
+        href="https://maps.google.com/maps?ie=UTF8&amp;cid=7228118768074950485&amp;q=Frank%27s+Pizza&amp;iwloc=A&amp;gl=US&amp;hl=en"
+        target="_blank">View map</a>
+    </div>
+
+    <div class="column_2">
+      <h5>LUNCH</h5>
+      <p>Monday - Friday, 11:00 - 3:00 pm</p>
+      <h5>DINNER</h5>
+      <p>Monday - Friday, 06:00 - 11:00 pm</p>
+    </div>
+
+
+    <router-outlet></router-outlet>
+
+
+
+  </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
