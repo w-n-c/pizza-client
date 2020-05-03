@@ -7,10 +7,11 @@
 }
 
 .column_1 {
+    position: absolute;
       margin-top: 15px;
       width: 30%;
-      left: 23.65%;
-      top: 79%;
+      left: 0vh;
+      top: 35.5vh;
       font-size: 30px;
       color: whitesmoke;
       border-color: orange;
@@ -18,8 +19,9 @@
     }
 
     .column_2 {
+      position: absolute;
+      top: 60vh;
       width: 30%;
-      top: 64.1%;
       font-size: 30px;
       color: whitesmoke;
       border-color: orange;
@@ -37,9 +39,6 @@
     .image {
       opacity: 1;
       display: block;
-      position: absolute;
-      top: 7%;
-      left: .5%;
       width: 160px;
       height: 120px;
       transition: .5s ease;
@@ -47,16 +46,10 @@
     }
 
     .middle {
-      position: relative;
-      top: 50%;
-      left: 50%;
-      width: 160px;
-      height: 120px;
       transition: .5s ease;
       opacity: 0;
       transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
-      text-align: center;
     }
 
     .container:hover .image {
@@ -89,12 +82,10 @@
     }
 
     .text {
+      text-align: center;
       font-size: 24px;
       color: whitesmoke;
-      position: relative;
-      top: 30%;
-      left: 5%;
       font-size: 16px;
-      padding: 16px 32px;
+
     }
 
