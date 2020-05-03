@@ -1,0 +1,100 @@
+
+.landing{
+  height: 100vh;
+  background: url(../../../assets/images/DB.jpg);
+  background-size: cover;
+
+}
+
+.column_1 {
+      margin-top: 15px;
+      width: 30%;
+      left: 23.65%;
+      top: 79%;
+      font-size: 30px;
+      color: whitesmoke;
+      border-color: orange;
+      border-style: solid;
+    }
+
+    .column_2 {
+      width: 30%;
+      top: 64.1%;
+      font-size: 30px;
+      color: whitesmoke;
+      border-color: orange;
+      border-style: solid;
+    }
+
+
+
+    h1.heading {
+      background-color: orange;
+      color: blue;
+      border-style: solid;
+    }
+
+    .image {
+      opacity: 1;
+      display: block;
+      position: absolute;
+      top: 7%;
+      left: .5%;
+      width: 160px;
+      height: 120px;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+
+    .middle {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: 160px;
+      height: 120px;
+      transition: .5s ease;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .container:hover .image {
+      opacity: 0.3;
+      border-style: solid;
+      animation: outline 1000ms ease-in-out infinite;
+      animation: flicker-background 1000ms ease-in infinite;
+    }
+
+    @keyframes outline {
+      100% {
+        border-color: gold;
+      }
+
+      0% {
+        border-color: blue;
+      }
+
+
+    }
+
+    @keyframes flicker-background {
+      50% {
+        transform: scale(0.98);
+      }
+    }
+
+    .container:hover .middle {
+      opacity: 1;
+    }
+
+    .text {
+      font-size: 24px;
+      color: whitesmoke;
+      position: relative;
+      top: 30%;
+      left: 5%;
+      font-size: 16px;
+      padding: 16px 32px;
+    }
+
