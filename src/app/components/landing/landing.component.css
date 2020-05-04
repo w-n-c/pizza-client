@@ -46,6 +46,10 @@
     }
 
     .middle {
+      position: absolute;
+      top: 5vh;
+      height: 100%;
+      width: 100%;
       transition: .5s ease;
       opacity: 0;
       transform: translate(-50%, -50%);
@@ -79,14 +83,5 @@
 
     .container:hover .middle {
       opacity: 1;
-    }
-
-    .text {
-      position: absolute;
-      bottom: 0%;
-      left: 98%;
-      font-size: 24px;
-      color: whitesmoke;
-      font-size: 16px;
     }
 
