@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 import {ApiServiceService} from 'src/app/services/api-service.service';
+import {User} from 'src/app/models/User';
 
 @Component({
   selector: 'app-login',
@@ -35,15 +36,15 @@ export class LoginComponent implements OnInit {
     let result = await this.userSearch.getUser(loginUser.username,loginUser.password);
     this.user = result;
     window.localStorage.setItem("user",''+this.user.id);
+    window.localStorage.setItem("username",this.user.name)
     window.localStorage.setItem("role",''+this.user.role.title);
     if(this.user.role.title == "customer"){
       window.location.replace(location.protocol + '//' + location.host +'/registeredcustomer')
     }else if(this.user.role.title == "employee"){
-
-    }else{
       
+    }else{
+      alert("Inncorrect password or username");
     }
-    console.log(this.user);
   }
 
   ngOnInit(): void {
