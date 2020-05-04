@@ -1,0 +1,29 @@
+nav ul {
+    display: flex;
+    padding: 0;
+    border-bottom: 1px solid black;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+    margin: 1vh 1vw 0 1vw;
+    font-size: 1.3rem;
+    padding: .3vw;
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+.component {
+    height: 100vh;
+}
+
+.view {
+    display: grid;
+    height: 100%;
+    grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+.view > * {
+    border: .5px solid black;
+}

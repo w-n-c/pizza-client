@@ -1,0 +1,16 @@
+<div class="component">
+    <header>
+        <nav><ul><li>current orders</li><li>order history</li></ul></nav>
+    </header>
+    <article class="view">
+        <app-ticket-view [status]="baking[0].status" [tickets]="baking">
+            <div>render</div>
+        </app-ticket-view>
+        <app-ticket-view [status]="preparing[0].status"[tickets]="preparing">
+        </app-ticket-view>
+        <app-ticket-view [status]="pending[0].status"[tickets]="pending">
+        </app-ticket-view>
+        <app-ticket-view [status]="done[0].status"[tickets]="done">
+        </app-ticket-view>
+    </article>
+</div>
