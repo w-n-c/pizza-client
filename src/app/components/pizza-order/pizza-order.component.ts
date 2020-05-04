@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,FormArray,FormBuilder, Validators } from '@angular/forms';
+import {ApiServiceService} from 'src/app/services/api-service.service'
+
 
 @Component({
   selector: 'app-pizza-order',
@@ -10,11 +12,12 @@ export class PizzaOrderComponent implements OnInit {
 
   toppingList:Array<any>;
   toppingForm: FormGroup;
+  toppings:any
   pizza = {};
   pizzaList:Array<any>=[];
   totalPrice:number=0;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private api:ApiServiceService) { }
 
   buildForm(){
     this.toppingForm = this.fb.group({
@@ -52,16 +55,20 @@ export class PizzaOrderComponent implements OnInit {
 
     let pizzaString ='Pizza with ';
     let pizzaPrice = 8;
+    this.toppings=[];
     for(let x of selectedToppingsIds){
+      this.toppings.push(this.toppingList[x-1]);
       pizzaString += `${this.toppingList[x-1].name}, `;
       pizzaPrice += this.toppingList[x-1].price;
     }
     
     this.pizza["name"] = pizzaString;
     this.pizza["price"] = pizzaPrice;
+    this.pizza["toppings"]=this.toppings;
+
     console.log(this.pizza);
     this.pizzaList.push(this.pizza);
-
+    console.log(this.pizzaList)
     this.calculateTotal();
   }
 
@@ -80,8 +87,14 @@ export class PizzaOrderComponent implements OnInit {
     this.calculateTotal();
   }
 
-  submitOrder(){
-    // make a post request to submit order
+  async submitOrder(){
+    let userId = window.localStorage.getItem("user");
+    let ticket = {
+      "user":{"id":userId},
+	    "pizzas": this.pizzaList
+    }
+    let result = await this.api.submitTicket(ticket);
+    console.log(result);
   }
 
   ngOnInit(): void {
