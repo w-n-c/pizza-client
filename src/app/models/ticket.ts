@@ -1,5 +1,5 @@
 import {Pizza} from 'src/app/models/pizza'
-import {User} from 'src/app/models/User'
+import {User} from 'src/app/models/user'
 
 export class Ticket{
     id:number;
@@ -8,14 +8,4 @@ export class Ticket{
     placementTime: string;
     status: string;
     note: string;
-
-    constructor(id,pizzas,user,placementTime,status,note){
-        this.id=id;
-        this.pizzas=pizzas;
-        this.user = user;
-        this.placementTime = placementTime;
-        this.status = status;
-        this.note = note;
-
-    }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-landing',
@@ -7,18 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
 
 
   async signup(){
-    let link = location.protocol + '//' + location.host + location.pathname +'/signup';
-    window.location.replace(link);
+    this.router.navigate(['/signup'])
   }
 
   async orderNow(){
-    let link = location.protocol + '//' + location.host + location.pathname +'/order';
-    window.location.replace(link);
+    this.router.navigate(['/order'])
   }
 
   ngOnInit(): void {

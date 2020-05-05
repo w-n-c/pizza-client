@@ -1,0 +1,14 @@
+<article class="tickets">
+    <h3 class="status-header">{{status}}</h3>
+    <article *ngFor="let t of tickets; let i = index" class="ticket">
+        <header (click)="showTicket(i)">
+            <h3 class="order-id">Order {{t.id}}</h3>
+        </header>
+        <section *ngIf="i == selected" class="view">
+            <ul class="pizzas">
+                <li *ngFor="let p of t.pizzas">Pizza {{p.id}}</li>
+            </ul>
+        </section>
+        <ng-content></ng-content>
+    </article>
+</article>
