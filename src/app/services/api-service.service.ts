@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from 'src/app/models/User';
+import {User} from 'src/app/models/user';
 import {Ticket} from 'src/app/models/ticket';
 
 @Injectable({
@@ -10,26 +10,24 @@ export class ApiServiceService {
 
   constructor(private http:HttpClient) { }
 
-  getUser(username, password):Promise<User>{
-    let user = { password, username };
-    let userPromise:Promise<User> = this.http.post<User>(`http://localhost:8080/users/`,user).toPromise();
-    return userPromise;
+  getUser(username:string, password:string):Promise<User>{
+    return this.http.post<User>(`http://localhost:8080/users/login`, {username, password}).toPromise();
   }
 
-  createUser(username, password):Promise<User>{
-    let user = {"username":username,
-       "password":password,
-       "role":{
-         "id":2,
-         "title":"customer"
-       }
-      };
-    let userPromise:Promise<User> = this.http.post<User>(`http://localhost:8080/users`,user).toPromise();
-    return userPromise;
+  createUser(username:string, password:string):Promise<User>{
+    let user = {
+      username,
+      password,
+      role: { "id":2 }
+    };
+    return this.http.post<User>(`http://localhost:8080/users`,user).toPromise();
   }
 
-  submitTicket(ticket):Promise<Ticket>{
-    let userPromise:Promise<Ticket> = this.http.post<Ticket>('http://localhost:8080/tickets',ticket).toPromise();
-    return userPromise
+  submitTicket(ticket:Ticket):Promise<Ticket>{
+    return this.http.post<Ticket>('http://localhost:8080/tickets', ticket).toPromise();
+  }
+
+  getTickets():Promise<Ticket[]> {
+    return this.http.get<Ticket[]>('http://localhost:8080/tickets').toPromise();
   }
 }

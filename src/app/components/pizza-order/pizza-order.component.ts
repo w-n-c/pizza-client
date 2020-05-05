@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,FormArray,FormBuilder, Validators } from '@angular/forms';
 import {ApiServiceService} from 'src/app/services/api-service.service'
+import { Pizza } from 'src/app/models/pizza'
+import { Ticket } from 'src/app/models/ticket';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -12,7 +15,6 @@ export class PizzaOrderComponent implements OnInit {
 
   toppingList:Array<any>;
   toppingForm: FormGroup;
-  toppings:any
   pizza = {};
   pizzaList:Array<any>=[];
   totalPrice:number=0;
@@ -55,20 +57,18 @@ export class PizzaOrderComponent implements OnInit {
 
     let pizzaString ='Pizza with ';
     let pizzaPrice = 8;
-    this.toppings=[];
+    let toppings = [];
     for(let x of selectedToppingsIds){
-      this.toppings.push(this.toppingList[x-1]);
+      toppings.push(this.toppingList[x-1]);
       pizzaString += `${this.toppingList[x-1].name}, `;
       pizzaPrice += this.toppingList[x-1].price;
     }
-    
+
     this.pizza["name"] = pizzaString;
     this.pizza["price"] = pizzaPrice;
-    this.pizza["toppings"]=this.toppings;
+    this.pizza["toppings"] = toppings;
 
-    console.log(this.pizza);
     this.pizzaList.push(this.pizza);
-    console.log(this.pizzaList)
     this.calculateTotal();
   }
 
@@ -89,12 +89,19 @@ export class PizzaOrderComponent implements OnInit {
 
   async submitOrder(){
     let userId = window.localStorage.getItem("user");
-    let ticket = {
-      "user":{"id":userId},
-	    "pizzas": this.pizzaList
+    let user = new User();
+    user.id = Number(userId);
+    let ticket = new Ticket();
+    ticket.user = user;
+    ticket.pizzas = this.pizzaList;
+    const result = await this.api.submitTicket(ticket);
+    if (result.id) {
+      // TODO
+      console.log('display success')
+    } else {
+      // TODO
+      console.log('ask user to try again (order failed)')
     }
-    let result = await this.api.submitTicket(ticket);
-    console.log(result);
   }
 
   ngOnInit(): void {

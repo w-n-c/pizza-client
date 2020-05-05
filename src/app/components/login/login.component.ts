@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { FormArray } from '@angular/forms';
-import {ApiServiceService} from 'src/app/services/api-service.service';
-import {User} from 'src/app/models/User';
+import { ApiServiceService } from 'src/app/services/api-service.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-login',
@@ -13,43 +12,37 @@ import {User} from 'src/app/models/User';
 
 export class LoginComponent implements OnInit {
 
+  constructor(private fb: FormBuilder, private api:ApiServiceService, private router:Router) { };
+
   loginForm=this.fb.group({
     username: [''],
     password: ['']
   });
-  user:any
-
-  constructor(private fb: FormBuilder, private userSearch:ApiServiceService) { }
 
   signup(){
-    let link = location.protocol + '//' + location.host + location.pathname +'/signup';
-    window.location.replace(link);
-  }
+    this.router.navigate(["/signup"]);
+  };
 
   orderNow(){
-    let link = location.protocol + '//' + location.host + location.pathname +'/order';
-    window.location.replace(link); 
-  }
+    this.router.navigate(["/order"]);
+  };
 
   async login():Promise<any>{
-    let loginUser = this.loginForm.value
-    let result = await this.userSearch.getUser(loginUser.username,loginUser.password);
-    this.user = result;
-    window.localStorage.setItem("user",''+this.user.id);
-    window.localStorage.setItem("username",this.user.name)
-    window.localStorage.setItem("role",''+this.user.role.title);
-    if(this.user.role.title == "customer"){
-      window.location.replace(location.protocol + '//' + location.host +'/registeredcustomer')
-    }else if(this.user.role.title == "employee"){
-      
-    }else{
+    let credentials = this.loginForm.value
+    let user:User = await this.api.getUser(credentials.username,credentials.password);
+    window.localStorage.setItem("user",''+user.id);
+    window.localStorage.setItem("username",user.username);
+    window.localStorage.setItem("role",''+user.role.title);
+    if (user.role.title == "customer") {
+      this.router.navigate(["/registeredcustomer"]);
+    } else if (user.role.title == "employee") {
+      this.router.navigate(["/employee"])
+    } else {
       alert("Inncorrect password or username");
     }
-  }
+  };
 
   ngOnInit(): void {
-  }
-
-
+  };
 
 }
