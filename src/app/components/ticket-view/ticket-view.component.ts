@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { identifierModuleUrl } from '@angular/compiler';
+import { Ticket } from 'src/app/models/ticket';
 
 @Component({
   selector: 'app-ticket-view',
@@ -10,7 +10,7 @@ export class TicketViewComponent implements OnInit {
 
   constructor() { }
 
-  @Input() tickets:any[]
+  @Input() tickets:Ticket[]
   @Input() status:string
 
   selected:number;
@@ -20,6 +20,6 @@ export class TicketViewComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.selected = this.tickets.length ? 0 : -1
+    this.selected = 0
   }
 }
