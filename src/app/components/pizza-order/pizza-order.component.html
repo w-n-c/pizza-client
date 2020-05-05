@@ -8,7 +8,7 @@
                 <div
                     formArrayName="toppings"
                     *ngFor="let topping of toppingForm.controls.toppings['controls']; let i=index">
-                    <input type="checkbox" [formControlName]="i"/> {{toppingList[i].name}} - {{toppingList[i].price | currency}}
+                    <input type="checkbox" [formControlName]="i"/> {{toppingList[i].name}} - {{toppingList[i].cost | currency}}
                 </div>
                 <br>
                 <button type="submit">Add Pizza</button>

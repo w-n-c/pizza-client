@@ -24,6 +24,7 @@ export class EmployeeViewComponent implements OnInit {
 
   async getTickets() {
     const input = await this.api.getTickets();
+    console.log(input);
     input.forEach(el => {
       switch (el.status) {
         case "pending": this.pending.push(el); break;
