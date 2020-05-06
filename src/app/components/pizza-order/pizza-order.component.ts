@@ -18,6 +18,7 @@ export class PizzaOrderComponent implements OnInit {
   pizza = {};
   pizzaList:Array<any>=[];
   totalPrice:number=0;
+  specialInstruction:string="";
 
   constructor(private fb: FormBuilder, private api:ApiServiceService) { }
 
@@ -44,9 +45,7 @@ export class PizzaOrderComponent implements OnInit {
         result[i]["selected"] = false;
       }
     }
-  
     this.toppingList = result;
-    console.log(this.toppingList)
     this.buildForm();
     this.buildToppings();
   }
@@ -97,12 +96,14 @@ export class PizzaOrderComponent implements OnInit {
     let ticket = new Ticket();
     ticket.user = user;
     ticket.pizzas = this.pizzaList;
+    ticket.note = this.specialInstruction;
     const result = await this.api.submitTicket(ticket);
+    
     if (result.id) {
-      // TODO
+      alert("Your order has been submitted and your ticket id is: "+result.id);
       console.log('display success')
     } else {
-      // TODO
+      alert("Your order has failed to be submitted");
       console.log('ask user to try again (order failed)')
     }
   }

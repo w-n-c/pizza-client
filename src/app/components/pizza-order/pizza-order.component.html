@@ -24,6 +24,9 @@
                 </tr>
             </table>
             <p>Total: {{totalPrice | currency}}</p>
+            <!-- <input class="form-control" type='text' placeholder="type in any special instructions" [(ngModel)]="specialInstruction"> -->
+            <textarea class="form-control" aria-label="With textarea" placeholder="type in any special instructions" [(ngModel)]="specialInstruction"></textarea>
+            <br>
             <button (click)=submitOrder()>Submit Order</button>
         </div>
     </div>
