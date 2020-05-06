@@ -3,14 +3,11 @@
         <nav><ul><li>current orders</li><li>order history</li></ul></nav>
     </header>
     <article class="view">
-        <app-ticket-view [status]="bakeStatus" [tickets]="baking">
-            <div>render</div>
-        </app-ticket-view>
-        <app-ticket-view [status]="prepStatus"[tickets]="preparing">
-        </app-ticket-view>
-        <app-ticket-view [status]="pendStatus"[tickets]="pending">
-        </app-ticket-view>
-        <app-ticket-view [status]="doneStatus" [tickets]="done">
-        </app-ticket-view>
+        <app-pending-view [tickets]="pending"></app-pending-view>
+        <div>
+            <app-preparing-view *ngIf="preparing.length > 0" [tickets]="preparing"></app-preparing-view>
+        </div>
+        <div>placeholder</div>
+        <div>placeholder</div>
     </article>
 </div>

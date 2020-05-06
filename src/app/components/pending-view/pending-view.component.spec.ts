@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TicketViewComponent } from './ticket-view.component';
+import { PendingViewComponent } from './pending-view.component';
 
-describe('TicketViewComponent', () => {
-  let component: TicketViewComponent;
-  let fixture: ComponentFixture<TicketViewComponent>;
+describe('PendingViewComponent', () => {
+  let component: PendingViewComponent;
+  let fixture: ComponentFixture<PendingViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TicketViewComponent ]
+      declarations: [ PendingViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TicketViewComponent);
+    fixture = TestBed.createComponent(PendingViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
