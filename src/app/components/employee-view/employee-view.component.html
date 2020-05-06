@@ -3,11 +3,22 @@
         <nav><ul><li>current orders</li><li>order history</li></ul></nav>
     </header>
     <article class="view">
-        <app-pending-view [tickets]="pending"></app-pending-view>
-        <div>
-            <app-preparing-view *ngIf="preparing.length > 0" [tickets]="preparing"></app-preparing-view>
-        </div>
+        <article class="tickets" *ngIf="pending.length > 0 else loading">
+            <h3 class="status-header">pending</h3>
+            <article *ngFor="let ticket of pending" class="ticket">
+                <app-pending-view [ticket]="ticket"></app-pending-view>
+            </article>
+        </article>
+        <article class="tickets" *ngIf="preparing.length > 0 else loading">
+            <h3 class="status-header">preparing</h3>
+            <article *ngFor="let ticket of preparing" class="ticket">
+                <app-preparing-view [ticket]="ticket"></app-preparing-view>
+            </article>
+        </article>
         <div>placeholder</div>
         <div>placeholder</div>
     </article>
 </div>
+<ng-template #loading>
+    <div class="loading">Loading...</div>
+</ng-template>
