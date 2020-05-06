@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from 'src/app/models/user';
 import {Ticket} from 'src/app/models/ticket';
+import {Topping} from 'src/app/models/topping'
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,10 @@ export class ApiServiceService {
   }
 
   getTickets():Promise<Ticket[]> {
-    return this.http.get<Ticket[]>('http://localhost:8080/tickets').toPromise();
+    return this.http.get<Ticket[]>('http://localhost:8080/tickets/').toPromise();
+  }
+
+  getToppings():Promise<Topping[]>{
+    return this.http.get<Topping[]>('http://localhost:8080/toppings').toPromise();
   }
 }

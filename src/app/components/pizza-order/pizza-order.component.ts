@@ -34,18 +34,21 @@ export class PizzaOrderComponent implements OnInit {
     });
   }
 
-  fetchToppingList(){
-    return this.toppingList = 
-    [{id:1,name:"Cheese",price:0.75,selected:true},
-    {id:2,name:"Pepperoni",price:0.75,selected:false},
-    {id:3,name:"Bacon",price:1.00,selected:false},
-    {id:4,name:"Onions",price:0.35,selected:false},
-    {id:5,name:"Pepper",price:0.35,selected:false},
-    {id:6,name:"Chicken",price:0.75,selected:false},
-    {id:7,name:"Pineapple",price:0.50,selected:false},
-    {id:8,name:"Sausage",price:0.80,selected:false},
-    {id:9,name:"Anchovies",price:0.55,selected:false},
-    {id:10,name:"Spinach",price:0.50,selected:false}]
+  async fetchToppingList(){
+    let result = await this.api.getToppings();
+    
+    for (let i=0;i<result.length;i++){
+      if(i===0){
+        result[i]["selected"] = true;
+      }else{
+        result[i]["selected"] = false;
+      }
+    }
+  
+    this.toppingList = result;
+    console.log(this.toppingList)
+    this.buildForm();
+    this.buildToppings();
   }
 
   submit(){
@@ -61,11 +64,11 @@ export class PizzaOrderComponent implements OnInit {
     for(let x of selectedToppingsIds){
       toppings.push(this.toppingList[x-1]);
       pizzaString += `${this.toppingList[x-1].name}, `;
-      pizzaPrice += this.toppingList[x-1].price;
+      pizzaPrice += this.toppingList[x-1].cost;
     }
 
     this.pizza["name"] = pizzaString;
-    this.pizza["price"] = pizzaPrice;
+    this.pizza["cost"] = pizzaPrice;
     this.pizza["toppings"] = toppings;
 
     this.pizzaList.push(this.pizza);
@@ -75,7 +78,7 @@ export class PizzaOrderComponent implements OnInit {
   calculateTotal(){
     this.totalPrice = 0;
     for(let p of this.pizzaList){
-      this.totalPrice += p.price;
+      this.totalPrice += p.cost;
     }
   }
 
@@ -106,8 +109,7 @@ export class PizzaOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchToppingList();
-    this.buildForm();
-    this.buildToppings();
+    
   }
 
 }
