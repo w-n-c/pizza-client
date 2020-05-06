@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
 
 import { RegisteredCustomerComponent } from './components/registered-customer/registered-customer.component';
 import { LoginComponent } from './components/login/login.component';
@@ -32,7 +33,8 @@ import { PreparingViewComponent } from './components/preparing-view/preparing-vi
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
