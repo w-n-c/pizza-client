@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 import { Ticket } from 'src/app/models/ticket';
-import { Pizza } from 'src/app/models/pizza';
 
 @Component({
   selector: 'app-preparing-view',
@@ -12,13 +13,15 @@ export class PreparingViewComponent implements OnInit {
   @Input() tickets:Array<Ticket>
   pizzasLeft:number[] = [];
 
-  constructor() { }
+  constructor(private api:ApiServiceService, private router:Router) { }
 
   onPizzaClick(event, ticket:number) {
     event.target.parentNode.disabled = true;
     this.pizzasLeft[ticket]--;
     if (this.pizzasLeft[ticket] === 0) {
-      //update status to baking
+      let prepared = this.tickets[ticket];
+      prepared.status = 'baking'
+      this.api.updateTicket(prepared)
     }
   }
 
