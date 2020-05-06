@@ -19,7 +19,7 @@ export class ApiServiceService {
     let user = {
       username,
       password,
-      role: { "id":2 }
+      role: { "id":2 } // 2 === user role
     };
     return this.http.post<User>(`http://localhost:8080/users/`,user).toPromise();
   }
@@ -34,5 +34,9 @@ export class ApiServiceService {
 
   getToppings():Promise<Topping[]>{
     return this.http.get<Topping[]>('http://localhost:8080/toppings').toPromise();
+  }
+
+  updateTicket(ticket:Ticket):Promise<Ticket> {
+    return this.http.post<Ticket>(`http://localhost:8080/tickets/${ticket.id}`, ticket).toPromise();
   }
 }

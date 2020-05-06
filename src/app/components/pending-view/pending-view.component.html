@@ -1,8 +1,9 @@
 <article class="tickets">
     <h3 class="status-header">pending</h3>
-    <article *ngFor="let t of tickets; first as first" class="ticket">
+    <article *ngFor="let t of tickets; index as i" class="ticket">
         <header>
             <h4 class="order-id">Order {{t.id}}</h4>
+            <button (click)="onOrderClick($event, i)">Start Order</button>
         </header>
         <ul class="pizzas">
             <li class="pizza" *ngFor="let p of t.pizzas">
