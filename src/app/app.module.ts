@@ -12,7 +12,8 @@ import { PizzaOrderComponent } from './components/pizza-order/pizza-order.compon
 import { FormatNamePipe } from './pipes/format-name.pipe';
 import { RegisterComponent } from './components/register/register.component';
 import { EmployeeViewComponent } from './components/employee-view/employee-view.component';
-import { TicketViewComponent } from './components/ticket-view/ticket-view.component';
+import { PendingViewComponent } from './components/pending-view/pending-view.component';
+import { PreparingViewComponent } from './components/preparing-view/preparing-view.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TicketViewComponent } from './components/ticket-view/ticket-view.compon
     FormatNamePipe,
     RegisterComponent,
     EmployeeViewComponent,
-    TicketViewComponent
+    PendingViewComponent,
+    PreparingViewComponent
   ],
   imports: [
     BrowserModule,

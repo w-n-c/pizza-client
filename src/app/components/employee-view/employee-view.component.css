@@ -25,5 +25,7 @@ li {
 }
 
 .view > * {
+    overflow-y: scroll;
     border: .5px solid black;
+    scrollbar-width: none;
 }
