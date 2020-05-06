@@ -1,87 +1,74 @@
-
-.landing{
+.landing {
   height: 100vh;
+  width: 100%;
   background: url(../../../assets/images/DB.jpg);
   background-size: cover;
+}
 
+.container {
+  padding: 0;
+  padding: right 2;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .column_1 {
-    position: absolute;
-      margin-top: 15px;
-      width: 30%;
-      left: 0vh;
-      top: 35.5vh;
-      font-size: 30px;
-      color: whitesmoke;
-      border-color: orange;
-      border-style: solid;
-    }
+  width: 100%;
+  font-size: 30px;
+  color: whitesmoke;
+  background-image: url(../../../assets/images/header.jpg);
+}
 
-    .column_2 {
-      position: absolute;
-      top: 60vh;
-      width: 30%;
-      font-size: 30px;
-      color: whitesmoke;
-      border-color: orange;
-      border-style: solid;
-    }
+.column2 {
+  width: min-content;
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  color: whitesmoke;
+}
 
+.column3 {
+  height: 250px;
+  width: 100%;
+  font-size: 30px;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
 
+.wanted{
+  display: flex;
+  margin-left: 77%;
 
-    h1.heading {
-      background-color: orange;
-      color: blue;
-      border-style: solid;
-    }
+}
 
-    .image {
-      opacity: 1;
-      display: block;
-      width: 160px;
-      height: 120px;
-      transition: .5s ease;
-      backface-visibility: hidden;
-    }
-
-    .middle {
-      position: absolute;
-      top: 5vh;
-      height: 100%;
-      width: 100%;
-      transition: .5s ease;
-      opacity: 0;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-    }
-
-    .container:hover .image {
-      opacity: 0.3;
-      border-style: solid;
-      animation: outline 1000ms ease-in-out infinite;
-      animation: flicker-background 1000ms ease-in infinite;
-    }
-
-    @keyframes outline {
-      100% {
-        border-color: gold;
-      }
-
-      0% {
-        border-color: blue;
-      }
+.centertext {
+  background-image: url(../../../assets/images/grungy-rough-old-worn-parchment-paper.jpg);
+  position: absolute;
+  top: 25%;
+  margin-left: 450px;
+  color: black;
+  width: 45%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
 
 
-    }
 
-    @keyframes flicker-background {
-      50% {
-        transform: scale(0.98);
-      }
-    }
-
-    .container:hover .middle {
-      opacity: 1;
-    }
-
+.image {
+  opacity: 1;
+  display: block;
+  width: 160px;
+  height: 120px;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+.container:hover .image {
+  opacity: 0.3;
+  animation: outline 1000ms ease-in-out infinite;
+  animation: flicker-background 1000ms ease-in infinite;
+}

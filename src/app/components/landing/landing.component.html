@@ -1,76 +1,64 @@
 <div class="landing">
-  <div style='position: relative;'>
-    <div class="heading" id="head" style="border-bottom-width: 3px;" sytle="">
-      <h1 class="heading" style="margin-top: 1px; margin-bottom: 1px; border-top-width: 3px; border-left-width: 2px;">
-        Joe's Revolver</h1>
+  <div class="wrapper">
+    <div class="column_1">
+      Joe's Revolver
     </div>
 
-    <div class="ok"
-      style=' margin-top: 1%;  position: absolute; top:20vh; left: 60vh;  width: 47%; background-image: url(../../../assets/images/grungy-rough-old-worn-parchment-paper.jpg); margin-top: 45px;'>
-      <h1 style="text-align: center;">- The showdown deals -</h1>
-      <p id="middletext">
-        A precursor of pizza was probably the focaccia, a flat bread known to the Romans as panis focacius, to which
-        toppings were then added. Modern pizza evolved from similar flatbread dishes in Naples, Italy, in the 18th or
-        early 19th century.
-
-        The word pizza was first documented in A.D. 997 in Gaeta[3] and successively in different parts of Central and
-        Southern Italy. Pizza was mainly eaten in Italy and by emigrants from there. This changed after World War II
-        when Allied troops stationed in Italy came to enjoy pizza along with other Italian foods.
-      </p>
-    </div>
-
-    <div class="wanted">
-      <img style="position: absolute; top: 44.5vh; left: 151vh; width: 40vh; height: 53vh;"
-        src="../../../assets/images/pizza wanted.png">
-    </div>
-
-    <div class="container" id="img2" style="position:absolute;  left: .6%; width: 12%; height: 10%;">
-      <img class="image" style="margin-top: 1%;" src="../../../assets/images/Pizza chessemexican-and-pepperoni.jpg">
-      <div class="middle">
-
-        <button (click)="orderNow()" type="button" style="position: absolute; top: 50%; left: 55%;"
-          class="btn btn-secondary">Order Now!</button>
-
+    <div class="column2">
+      <div class="container">
+        <img class="image" src="../../../assets/images/Pizza chessemexican-and-pepperoni.jpg">
+        <div class="middle">
+          <button (click)="orderNow()" type="button" class="btn btn-secondary">
+            Order Now
+          </button>
+        </div>
       </div>
-    </div>
-
-    <div class="container" id="img3" style="position:absolute; left: 11.2%; width: 12%; height: 10%;">
-      <img class="image" style="margin-top: 1%;" id="img3" src="../../../assets/images/sign in 166004.jpg">
-      <div class="middle">
-        <div class="text" id="menu">
-          <button (click)="signup()" type="button" style="position: absolute; top: 50%; left: 68%;"
-            class="btn btn-secondary">Sign up</button>
+      <div class="container">
+        <img class="image" src="../../../assets/images/sign in 166004.jpg">
+        <div class="middle">
+          <button (click)="signup()" type="button" class="btn btn-secondary">
+            Sign up
+          </button>
+        </div>
+      </div>
+      <div class="container">
+        <img class="image" src="../../../assets/images/Pizza menu and-pepperoni.jpg">
+        <div class="middle">
+          <button (click)="orderNow()" type="button" class="btn btn-secondary">
+            Menu
+          </button>
         </div>
       </div>
     </div>
 
-    <div class="container" id="img4" style="position:absolute;  left: 22%; width: 12%; height: 10%;">
-      <img class="image" style="margin-top: 1%; " id="img4" src="../../../assets/images/Pizza menu and-pepperoni.jpg">
-      <div class="middle">
-        <button (click)="signup()" type="button" style="position: absolute; top: 50%; left: 68%;"
-          class="btn btn-secondary"> menu</button>
+    <div class="column3">Address: <br>
+      Brooklyn, NY 11234 <br>
+      Phone : (XXX)-XXX-XXXX<br>
+      Location: View map
+      <div style="padding-left: 5px;">
+        LUNCH: <br>
+        Mon - Fri, 11:00 - 3:00 pm <br>
+        DINNER<br>
+        Mon - Fri, 06:00 - 11:00 pm
       </div>
     </div>
+  </div>
 
-    <div class="column_1">
-      Address: <br>
-      Brooklyn, NY 11234 <br>
-      Phone : (XXX) XXX-XXXX<br>
-      Directions : <a
-        href="https://maps.google.com/maps?ie=UTF8&amp;cid=7228118768074950485&amp;q=Frank%27s+Pizza&amp;iwloc=A&amp;gl=US&amp;hl=en"
-        target="_blank">View map</a>
-    </div>
+  <div class="centertext">
+    <h1> The showdown board</h1>
+    <br>
+    <p class="middletext">
+      A precursor of pizza was probably the focaccia, a flat bread known to the Romans as panis focacius, to which
+      toppings were then added. Modern pizza evolved from similar flatbread dishes in Naples, Italy, in the 18th or
+      early 19th century.
+      <br>
+      The word pizza was first documented in A.D. 997 in Gaeta[3] and successively in different parts of Central and
+      Southern Italy. Pizza was mainly eaten in Italy and by emigrants from there. This changed after World War II
+      when Allied troops stationed in Italy came to enjoy pizza along with other Italian foods.
+    </p>
+  </div>
 
-    <div class="column_2">
-      <h5>LUNCH</h5>
-      <p>Mon - Fri, 11:00 - 3:00 pm</p>
-      <h5>DINNER</h5>
-      <p>Mon - Fri, 06:00 - 11:00 pm</p>
-    </div>
-
-
-
-
-
+  <div class="wanted">
+    <img style="height: 300px; width: 350px" src="../../../assets/images/pizza wanted.png">
   </div>
 </div>

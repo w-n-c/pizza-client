@@ -20,7 +20,7 @@ export class ApiServiceService {
       password,
       role: { "id":2 }
     };
-    return this.http.post<User>(`http://localhost:8080/users`,user).toPromise();
+    return this.http.post<User>(`http://localhost:8080/users/`,user).toPromise();
   }
 
   submitTicket(ticket:Ticket):Promise<Ticket>{
