@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
 
   async login():Promise<any>{
     let credentials = this.loginForm.value
+    console.log(credentials);
     let user:User = await this.api.getUser(credentials.username,credentials.password);
     window.localStorage.setItem("user",''+user.id);
     window.localStorage.setItem("username",user.username);
