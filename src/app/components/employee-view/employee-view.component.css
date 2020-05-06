@@ -1,3 +1,8 @@
+.status-header {
+    font-weight: normal;
+    text-align: center;
+}
+
 nav ul {
     display: flex;
     padding: 0;

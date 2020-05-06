@@ -10,25 +10,22 @@ import { Ticket } from 'src/app/models/ticket';
 })
 export class PreparingViewComponent implements OnInit {
 
-  @Input() tickets:Array<Ticket>
-  pizzasLeft:number[] = [];
+  @Input() ticket:Ticket
+  pizzasLeft:number;
 
   constructor(private api:ApiServiceService, private router:Router) { }
 
   onPizzaClick(event, ticket:number) {
     event.target.parentNode.disabled = true;
-    this.pizzasLeft[ticket]--;
-    if (this.pizzasLeft[ticket] === 0) {
-      let prepared = this.tickets[ticket];
-      prepared.status = 'baking'
-      this.api.updateTicket(prepared)
+    this.pizzasLeft--;
+    if (this.pizzasLeft === 0) {
+      this.ticket.status = 'baking'
+      this.api.updateTicket(this.ticket)
     }
   }
 
   ngOnInit(): void {
-    for(let i = 0; i < this.tickets.length; i++) {
-      this.pizzasLeft[i] = this.tickets[i].pizzas.length;
-    }
+    this.pizzasLeft = this.ticket.pizzas.length;
   }
 
 }

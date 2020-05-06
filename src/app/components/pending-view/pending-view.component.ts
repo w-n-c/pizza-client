@@ -12,13 +12,12 @@ export class PendingViewComponent implements OnInit {
 
   constructor(private api:ApiServiceService, private router:Router) { }
 
-  @Input() tickets:Ticket[]
+  @Input() ticket:Ticket
   
-  onOrderClick(event, ticket:number) {
+  onOrderClick(event) {
     event.target.disabled = true;
-    let selected = this.tickets[ticket];
-    selected.status = 'preparing'
-    this.api.updateTicket(selected)
+    this.ticket.status = 'preparing'
+    this.api.updateTicket(this.ticket)
   }
    
   ngOnInit(): void {

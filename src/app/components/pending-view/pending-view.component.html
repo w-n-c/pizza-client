@@ -1,19 +1,14 @@
-<article class="tickets">
-    <h3 class="status-header">pending</h3>
-    <article *ngFor="let t of tickets; index as i" class="ticket">
-        <header>
-            <h4 class="order-id">Order {{t.id}}</h4>
-            <button (click)="onOrderClick($event, i)">Start Order</button>
-        </header>
-        <ul class="pizzas">
-            <li class="pizza" *ngFor="let p of t.pizzas">
-                <h5>Pizza {{p.id}}</h5>
-                <ul class="toppings">
-                    <li class="topping" *ngFor="let top of p.toppings">
-                        {{top.name}}
-                    </li>
-                </ul>
+<header>
+    <h4 class="order-id">Order {{ticket.id}}</h4>
+    <button (click)="onOrderClick($event)">Start Order</button>
+</header>
+<ul class="pizzas">
+    <li class="pizza" *ngFor="let p of ticket.pizzas">
+        <h5>Pizza {{p.id}}</h5>
+        <ul class="toppings">
+            <li class="topping" *ngFor="let top of p.toppings">
+                {{top.name}}
             </li>
         </ul>
-    </article>
-</article>
+    </li>
+</ul>
