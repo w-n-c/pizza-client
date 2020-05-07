@@ -1,74 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      table, th, td{
-        border: 1px solid black;
-        border-collapse:collapse;
-         }
-         
-         .signout{
-           float: right;
-           text-align: center
-         }
-         
-         .account{
-           text-align: center;
-           padding-right:80px; 
-         }
-    </style>
     <Title>
       Registered User Page
     </Title>
   </head>
   <Body>
+      
+    <div class="head">
       <nav class="signout">
-        <a href="/html/">Sign Out</a>
+        <button (click)="logout()">SignOut</button>
       </nav>
-    <div style="background:orange">
-      <h1>Welcome User</h1>
+      <img class="logo" src="assets/images/JoesRevolverPizza.png">
+      <h1 style="text-align:center">Welcome User</h1>
+      
     </div>
     
     <hr>
     <div>
-      <nav>
-        <a href="/html/" class="account">My Account</a>
-        <a href="/html/" class="account">Orders</a>
-        <a href="/html/" class="account">Menu</a>
+      <nav class="secondnav">
+        <a href="" class="account" style="color:black">My Account</a>
+        <a href="/order" style="color:black">Online Order</a>
       </nav>
     </div>
-    <hr>
-    
-    <div>
-      <h5>Quick Order Builder</h5>
-    </div>
-    
     <hr>
     
     <div>
       <table style="width:100%" style="border:'1px solid black'">
         <tr>
-          <th><h4>Pizza</h4></th>
-          <th><h4>Toppings</h4></th>
-          <th><h4>Your Order</h4></th>
+          <th><h5>Ticket Number</h5></th>
+          <th><h5>Pizza</h5></th>
         </tr>
-        <tr><td><img src="https://media2.fdncms.com/metrotimes/imager/u/original/6723712/wood-fired_pizza." height=100></td>
-          <td>
-            <input type="checkbox" id="topping1" name="topping1" value="peporoni">
-            <label for="topping1"> Peporoni</label><br><br>
-            <input type="checkbox" id="topping2" name="topping2" value="Bacon">
-            <label for="topping2"> Bacon</label><br><br>
-            <input type="checkbox" id="topping3" name="topping3" value="Tomato">
-            <label for="topping3"> Tomato</label><br><br>
-            <input type="checkbox" id="topping4" name="topping4" value="onion">
-            <label for="topping4"> Onion</label><br><br>
-            <input type="checkbox" id="topping5" name="topping5" value="garlic">
-            <label for="topping5"> Garlic</label><br><br>
-            <input type="checkbox" id="topping6" name="topping6" value="mushroom">
-            <label for="topping6"> Mushroom</label><br><br><br>
-          </td>
-          <td>
-            <h4>Total = </h4>
+        <tr *ngFor="let ticket of ticketlist">
+          <td>{{ticket.id}}</td>
+          <td> 
+            <table>
+              <tr>
+                <th><h6>Pizza Id</h6></th>
+                <th><h6>Pizza Toppings</h6></th>
+              </tr>
+              <tr *ngFor="let pizza of ticket.pizzas">
+                <td>{{pizza.id}}</td>
+                <td>
+                  <table>
+                    <tr *ngFor="let topping of pizza.toppings">
+                      <td>{{topping.name}}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
       </table>
