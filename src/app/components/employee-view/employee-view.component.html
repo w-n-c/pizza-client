@@ -15,8 +15,18 @@
                 <app-preparing-view [ticket]="ticket"></app-preparing-view>
             </article>
         </article>
-        <div>placeholder</div>
-        <div>placeholder</div>
+        <article class="tickets" *ngIf="preparing.length > 0 else loading">
+            <h3 class="status-header">baking</h3>
+            <article *ngFor="let ticket of baking" class="ticket">
+                <app-baking-view [ticket]="ticket"></app-baking-view>
+            </article>
+        </article>
+        <article class="tickets" *ngIf="preparing.length > 0 else loading">
+            <h3 class="status-header">done</h3>
+            <article *ngFor="let ticket of done" class="ticket">
+                <app-done-view [ticket]="ticket"></app-done-view>
+            </article>
+        </article>
     </article>
 </div>
 <ng-template #loading>
