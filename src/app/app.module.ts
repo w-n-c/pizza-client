@@ -14,6 +14,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { EmployeeViewComponent } from './components/employee-view/employee-view.component';
 import { PendingViewComponent } from './components/pending-view/pending-view.component';
 import { PreparingViewComponent } from './components/preparing-view/preparing-view.component';
+import { BakingViewComponent } from './components/baking-view/baking-view.component';
+import { DoneViewComponent } from './components/done-view/done-view.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PreparingViewComponent } from './components/preparing-view/preparing-vi
     RegisterComponent,
     EmployeeViewComponent,
     PendingViewComponent,
-    PreparingViewComponent
+    PreparingViewComponent,
+    BakingViewComponent,
+    DoneViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<header>
+    <h4 class="order-id">Order {{ticket.id}}</h4>
+    <button *ngIf="baking > 0 else timer" (click)="onStart()">Start Timer</button>
+</header>
+<ul class="pizzas">
+    <li class="pizza" *ngFor="let p of ticket.pizzas">
+        <h5>Pizza {{p.id}}</h5>
+        <ul class="toppings">
+            <li class="topping" *ngFor="let top of p.toppings">
+                {{top.name}}
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<ng-template #timer>
+    <div *ngIf="baking == 0 else finished" class="timer">{{minutes}} minutes remaining</div>
+</ng-template>
+<ng-template #finished>
+    <button (click)="onFinish($event)">
+        Mark Completed
+    </button>
+</ng-template>
