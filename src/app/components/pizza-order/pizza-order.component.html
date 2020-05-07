@@ -4,7 +4,7 @@
         <div class="col-6">
             <h1>Topping List</h1><span>Note: Plain pizza cost $8.00</span>
             <br><br>
-            <form [formGroup]="toppingForm" (submit)="submit()">
+            <form class="toppingForm" [formGroup]="toppingForm" (submit)="submit()">
                 <div
                     formArrayName="toppings"
                     *ngFor="let topping of toppingForm.controls.toppings['controls']; let i=index">
@@ -12,11 +12,12 @@
                 </div>
                 <br>
                 <button type="submit">Add Pizza</button>
+                <br>
             </form>
         </div>
         <div class="col-6">
             <h2>View Order Here</h2>
-            <table class="table">
+            <table class="table" id="orderTable">
                 <tr *ngFor="let pizza of pizzaList">
                     <td>{{pizza.name | formatName}}</td>
                     <td>{{pizza.price | currency}}</td>
@@ -24,7 +25,6 @@
                 </tr>
             </table>
             <p>Total: {{totalPrice | currency}}</p>
-            <!-- <input class="form-control" type='text' placeholder="type in any special instructions" [(ngModel)]="specialInstruction"> -->
             <textarea class="form-control" aria-label="With textarea" placeholder="type in any special instructions" [(ngModel)]="specialInstruction"></textarea>
             <br>
             <button (click)=submitOrder()>Submit Order</button>

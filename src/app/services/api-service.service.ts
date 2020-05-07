@@ -11,8 +11,10 @@ export class ApiServiceService {
 
   constructor(private http:HttpClient) { }
 
+  path:string = 'http://ec2-3-86-26-45.compute-1.amazonaws.com:9000/'
+  
   getUser(username:string, password:string):Promise<User>{
-    return this.http.post<User>(`http://localhost:8080/users/login`, {username, password}).toPromise();
+    return this.http.post<User>(this.path+`users/login`, {username, password}).toPromise();
   }
 
   createUser(username:string, password:string):Promise<User>{
@@ -21,22 +23,22 @@ export class ApiServiceService {
       password,
       role: { "id":2 } // 2 === user role
     };
-    return this.http.post<User>(`http://localhost:8080/users/`,user).toPromise();
+    return this.http.post<User>(this.path+`/users/`,user).toPromise();
   }
 
   submitTicket(ticket:Ticket):Promise<Ticket>{
-    return this.http.post<Ticket>('http://localhost:8080/tickets', ticket).toPromise();
+    return this.http.post<Ticket>(this.path+'/tickets', ticket).toPromise();
   }
 
   getTickets():Promise<Ticket[]> {
-    return this.http.get<Ticket[]>('http://localhost:8080/tickets/').toPromise();
+    return this.http.get<Ticket[]>(this.path+'/tickets/').toPromise();
   }
 
   getToppings():Promise<Topping[]>{
-    return this.http.get<Topping[]>('http://localhost:8080/toppings').toPromise();
+    return this.http.get<Topping[]>(this.path+'/toppings').toPromise();
   }
 
   updateTicket(ticket:Ticket):Promise<Ticket> {
-    return this.http.post<Ticket>(`http://localhost:8080/tickets/${ticket.id}`, ticket).toPromise();
+    return this.http.post<Ticket>(this.path+`/tickets/${ticket.id}`, ticket).toPromise();
   }
 }

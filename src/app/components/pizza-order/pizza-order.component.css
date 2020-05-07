@@ -2,3 +2,22 @@
     color:blue;
     text-decoration: underline;
 }
+
+.toppingForm{
+    background-color: #dd9617;
+    border-style: groove;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+    font-size: large;
+}
+
+#orderTable{
+    background-color: #dd9617;
+    border-style: groove;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: large;
+}
