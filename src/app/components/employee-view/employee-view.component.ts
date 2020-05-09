@@ -7,11 +7,12 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
   templateUrl: './employee-view.component.html',
   styleUrls: ['./employee-view.component.css']
 })
-
 export class EmployeeViewComponent implements OnInit {
 
   constructor(private api:ApiServiceService) { }
-
+  stringSort(f:string, s:string) {
+    return f.localeCompare(s)
+  }
   // TODO: sort by date and create Models
   pendStatus:string = 'pending'
   prepStatus:string = 'preparing'
@@ -24,21 +25,26 @@ export class EmployeeViewComponent implements OnInit {
 
   async getTickets() {
     const input = await this.api.getTickets();
+    this.pending = new Array();
+    this.preparing = new Array();
+    this.done = new Array();
+    this.baking = new Array();
     input.sort((first, second) => new Date(first.placementTime).getTime() - new Date(second.placementTime).getTime())
     input.forEach(el => {
+      el.pizzas.sort((f, s) => f.id - s.id)
+      el.pizzas.forEach(pizza => pizza.toppings.sort((f, s) => this.stringSort(f.name, s.name)))
       switch (el.status) {
         case "pending": this.pending.push(el); break;
         case "preparing":this.preparing.push(el); break;
         case "baking":this.baking.push(el); break;
         case "done":this.done.push(el); break;
-        default: console.error("Invalid status for " + el);
       }
     })
   }
   
 
   ngOnInit(): void {
-    this.getTickets()
+    setInterval(this.getTickets.bind(this), 1000)
   }
 
 
