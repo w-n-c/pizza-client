@@ -34,11 +34,15 @@ export class ApiServiceService {
     return this.http.get<Ticket[]>(this.path+'/tickets/').toPromise();
   }
 
+  getTicketsbyusername(username:string):Promise<Ticket[]> {
+    return this.http.post<Ticket[]>(this.path+`/tickets/user/${username}`, username).toPromise();
+  }
+
   getToppings():Promise<Topping[]>{
     return this.http.get<Topping[]>(this.path+'/toppings').toPromise();
   }
 
   updateTicket(ticket:Ticket):Promise<Ticket> {
-    return this.http.post<Ticket>(this.path+`/tickets/${ticket.id}`, ticket).toPromise();
+    return this.http.post<Ticket>(this.path+`/tickets/id/${ticket.id}`, ticket).toPromise();
   }
 }
