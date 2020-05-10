@@ -6,6 +6,8 @@ import { EmployeeViewComponent } from './components/employee-view/employee-view.
 import { RegisteredCustomerComponent } from './components/registered-customer/registered-customer.component';
 import { RegisterComponent } from './components/register/register.component'
 import { LandingComponent } from './components/landing/landing.component'
+import {ChartComponent} from './components/chart/chart.component'
+
 
 const routes: Routes = [
   {path: "", component:LoginComponent},
@@ -13,7 +15,8 @@ const routes: Routes = [
   {path: "registeredcustomer", component:RegisteredCustomerComponent},
   {path: "signup", component:RegisterComponent},
   {path: "landing", component:LandingComponent},
-  {path: "employee", component:EmployeeViewComponent}
+  {path: "employee", component:EmployeeViewComponent},
+  {path: "chart", component:ChartComponent}
 ];
 
 @NgModule({

@@ -45,4 +45,8 @@ export class ApiServiceService {
   updateTicket(ticket:Ticket):Promise<Ticket> {
     return this.http.post<Ticket>(this.path+`/tickets/id/${ticket.id}`, ticket).toPromise();
   }
+
+  getToppingCount():Promise<any> {
+    return this.http.get(this.path+`/toppings/count`).toPromise();
+  }
 }

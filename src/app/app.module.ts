@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 import { RegisteredCustomerComponent } from './components/registered-customer/registered-customer.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,6 +19,7 @@ import { PreparingViewComponent } from './components/preparing-view/preparing-vi
 import { BakingViewComponent } from './components/baking-view/baking-view.component';
 import { DoneViewComponent } from './components/done-view/done-view.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { HeaderComponent } from './components/header/header.component';
     PreparingViewComponent,
     BakingViewComponent,
     DoneViewComponent,
-    HeaderComponent
+    HeaderComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { HeaderComponent } from './components/header/header.component';
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
