@@ -10,6 +10,7 @@
 
 .column2 {
   background-image: url(../../../assets/images/header.jpg);
+  background-size: cover;
   width: 100%;
   display: flex;
   flex-direction: row;

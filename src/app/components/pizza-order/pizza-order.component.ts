@@ -102,7 +102,11 @@ export class PizzaOrderComponent implements OnInit {
     const result = await this.api.submitTicket(ticket);
 
     if (result.id) {
-      alert("Your order has been submitted and your ticket id is: "+result.id);
+      if(window.localStorage.getItem("user")) {
+        this.router.navigate(["/registeredcustomer"])
+      } else {
+        alert("Your order has been submitted and your ticket id is: "+result.id);
+      }
       console.log('display success')
     } else {
       alert("Your order has failed to be submitted");

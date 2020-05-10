@@ -33,7 +33,7 @@ export class RegisteredCustomerComponent implements OnInit {
     console.log(username);
     console.log(window.localStorage.getItem('username'))
     const tickets = await this.api.getTicketsbyusername(username);
-    tickets.sort((first, second) => new Date(first.placementTime).getTime() - new Date(second.placementTime).getTime());
+    tickets.sort((first, second) => new Date(second.placementTime).getTime() - new Date(first.placementTime).getTime()) ;
     tickets.forEach(ticket => currentorder.push(ticket));
 
     if(this.ticketlist.length !== currentorder.length) {
