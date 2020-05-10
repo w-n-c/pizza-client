@@ -18,6 +18,7 @@ import { PreparingViewComponent } from './components/preparing-view/preparing-vi
 import { BakingViewComponent } from './components/baking-view/baking-view.component';
 import { DoneViewComponent } from './components/done-view/done-view.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

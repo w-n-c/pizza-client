@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,FormArray,FormBuilder, Validators } from '@angular/forms';
 import {ApiServiceService} from 'src/app/services/api-service.service'
+import { Router } from '@angular/router'
 import { Pizza } from 'src/app/models/pizza'
 import { Ticket } from 'src/app/models/ticket';
 import { User } from 'src/app/models/user';
@@ -19,9 +20,10 @@ export class PizzaOrderComponent implements OnInit {
   pizzaList:Array<any>=[];
   totalPrice:number=0;
   specialInstruction:string="";
+  user:string = window.localStorage.getItem("user");
 
-  constructor(private fb: FormBuilder, private api:ApiServiceService) { }
-
+  constructor(private fb: FormBuilder, private api:ApiServiceService, private router:Router) { }
+  
   buildForm(){
     this.toppingForm = this.fb.group({
       toppings: new FormArray([])
