@@ -12,7 +12,7 @@ export class ApiServiceService {
   constructor(private http:HttpClient) { }
 
   path:string = 'http://ec2-3-86-26-45.compute-1.amazonaws.com:9000/'
-  
+
   getUser(username:string, password:string):Promise<User>{
     return this.http.post<User>(this.path+`users/login`, {username, password}).toPromise();
   }
