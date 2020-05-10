@@ -29,6 +29,7 @@ li {
     grid-template: 1fr 1fr / 1fr 1fr;
 }
 
+.view > *::-webkit-scrollbar { width: 0 !important; }
 .view > * {
     overflow-y: scroll;
     border: .5px solid black;

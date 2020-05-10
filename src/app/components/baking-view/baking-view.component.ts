@@ -13,23 +13,9 @@ export class BakingViewComponent {
   constructor(private api:ApiServiceService, private router:Router) { }
 
   @Input() ticket:Ticket;
-  @Input() baking:number = 1;
-  minutes:number = 12;
-  interval;
-  
-  onStart() {
-    this.baking = 0;
-    this.interval = setInterval(() => {
-      if(this.minutes > 0) {
-        this.minutes--;
-      } else {
-        this.baking = -1;
-        clearInterval(this.interval);
-      }
-    },1000)
-  }
 
-  onFinish(event) {
+
+  onComplete(event) {
     event.target.disabled = true;
     this.ticket.status = 'done';
     this.api.updateTicket(this.ticket);

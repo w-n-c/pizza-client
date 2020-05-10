@@ -26,7 +26,7 @@
             <p>Total: {{totalPrice | currency}}</p>
             <textarea class="form-control" aria-label="With textarea" placeholder="type in any special instructions" [(ngModel)]="specialInstruction"></textarea>
             <br>
-            <button (click)=submitOrder()>Submit Order</button>
+            <button *ngIf = "pizzaList.length !== 0" (click)=submitOrder()>Submit Order</button >
         </div>
     </div>
 </div>
