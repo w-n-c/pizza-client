@@ -3,33 +3,33 @@
 <div class="column2">
   <img (click)="landing()" class="headerpic" src="../../../assets/images/JoesRevolverPizza.png">
   <div class="headerimgs">
-    <div class="middle">
-    <img (click)="orderNow()" class="image" src="../../../assets/images/Pizza chessemexican-and-pepperoni.jpg">
-      <button (click)="orderNow()" type="button" class="btn btn-secondary">
+    <div (click)="orderNow()" class="middle">
+    <img class="image" src="../../../assets/images/Pizza chessemexican-and-pepperoni.jpg">
+      <button type="button" class="btn btn-secondary">
         Order Now
       </button>
     </div>
   </div>
   <div class="headerimgs">
-    <div class="middle">
-      <img (click)="signup()" class="image" src="../../../assets/images/sign in 166004.jpg">
-      <button (click)="signup()" type="button" class="btn btn-secondary">
+    <div (click)="signup()"class="middle">
+      <img class="image" src="../../../assets/images/sign in 166004.jpg">
+      <button type="button" class="btn btn-secondary">
         Sign up
       </button>
     </div>
   </div>
   <div class="headerimgs">
-    <div class="middle">
+    <div (click)="orderNow()" class="middle">
     <img class="image" src="../../../assets/images/Pizza menu and-pepperoni.jpg">
-      <button (click)="orderNow()" type="button" class="btn btn-secondary">
+      <button type="button" class="btn btn-secondary">
         Menu
       </button>
     </div>
   </div>
   <div class="headerimgs endingheaders">
-    <div class="middle">
+    <div (click)="logout()" class="middle">
     <img class="image" src="../../../assets/images/lastword.png">
-        <button *ngIf="user" (click)="logout()" type="button" class="btn btn-secondary">
+        <button *ngIf="user" type="button" class="btn btn-secondary">
           Logout
         </button>
         <button *ngIf="!user" (click)="logout()" type="button" class="btn btn-secondary">
