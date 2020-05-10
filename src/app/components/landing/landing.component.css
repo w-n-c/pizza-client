@@ -15,20 +15,6 @@
   flex-direction: column;
 }
 
-.column_1 {
-  width: 100%;
-  font-size: 30px;
-  color: whitesmoke;
-  background-image: url(../../../assets/images/header.jpg);
-}
-
-.column2 {
-  width: min-content;
-  display: flex;
-  flex-direction: row;
-  font-size: 30px;
-  color: whitesmoke;
-}
 
 .column3 {
   height: 250px;
@@ -43,7 +29,6 @@
   background-image: url(../../../assets/images/grungy-rough-old-worn-parchment-paper.jpg);
   /* position: absolute; */
   /*top: 25%; */
-  margin-top: 1%;
   margin-left: 450px;
   color: black;
   width: 45%;

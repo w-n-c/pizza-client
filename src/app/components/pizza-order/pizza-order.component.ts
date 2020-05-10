@@ -37,7 +37,7 @@ export class PizzaOrderComponent implements OnInit {
 
   async fetchToppingList(){
     let result = await this.api.getToppings();
-    
+
     for (let i=0;i<result.length;i++){
       if(i===0){
         result[i]["selected"] = true;
@@ -98,7 +98,7 @@ export class PizzaOrderComponent implements OnInit {
     ticket.pizzas = this.pizzaList;
     ticket.note = this.specialInstruction;
     const result = await this.api.submitTicket(ticket);
-    
+
     if (result.id) {
       alert("Your order has been submitted and your ticket id is: "+result.id);
       console.log('display success')
@@ -110,7 +110,7 @@ export class PizzaOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchToppingList();
-    
+
   }
 
 }

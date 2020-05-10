@@ -17,6 +17,7 @@ import { PendingViewComponent } from './components/pending-view/pending-view.com
 import { PreparingViewComponent } from './components/preparing-view/preparing-view.component';
 import { BakingViewComponent } from './components/baking-view/baking-view.component';
 import { DoneViewComponent } from './components/done-view/done-view.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DoneViewComponent } from './components/done-view/done-view.component';
     PendingViewComponent,
     PreparingViewComponent,
     BakingViewComponent,
-    DoneViewComponent
+    DoneViewComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
