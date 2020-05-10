@@ -8,19 +8,13 @@
   <Body>
       
     <div class="head">
-      <nav class="signout">
-        <button (click)="logout()">SignOut</button>
-      </nav>
-      <img class="logo" src="assets/images/JoesRevolverPizza.png">
       <h1 style="text-align:center">Welcome User</h1>
-      
     </div>
     
     <hr>
     <div>
       <nav class="secondnav">
-        <a href="" class="account" style="color:black">My Account</a>
-        <a href="/order" style="color:black">Online Order</a>
+        <a routerLink="/order" style="color:black">Online Order</a>
       </nav>
     </div>
     <hr>
@@ -29,10 +23,13 @@
       <table style="width:100%" style="border:'1px solid black'">
         <tr>
           <th><h5>Ticket Number</h5></th>
+          <th><h5>Status</h5></th>
           <th><h5>Pizza</h5></th>
+
         </tr>
         <tr *ngFor="let ticket of ticketlist">
           <td>{{ticket.id}}</td>
+          <td>{{ticket.status}}</td>
           <td> 
             <table>
               <tr>

@@ -1,0 +1,7 @@
+body{
+    /*background-color: burlywood;*/
+    background-image: url(/assets/images/django.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

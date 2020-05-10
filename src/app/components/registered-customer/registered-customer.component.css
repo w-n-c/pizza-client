@@ -61,7 +61,8 @@ table{
      .head{
         padding: 20px;
         font-size: 20px;
-        background-color: rgb(175, 141, 78);
+        background-image: url(/assets/images/rtop.jpg);
+        background-size: cover;
      }
 
      .secondnav{
