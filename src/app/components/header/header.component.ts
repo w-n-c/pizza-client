@@ -11,21 +11,31 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router:Router) { }
 
+  user = window.localStorage.getItem("user");
 
-  async signup(){
+  signup(){
     this.router.navigate(['/signup'])
   }
 
-  async orderNow(){
+  orderNow(){
     this.router.navigate(['/order'])
   }
 
+  logout(){
+    window.localStorage.clear();
+    this.router.navigate(['']);
+  }
 
-  async landing(){
+  landing(){
     this.router.navigate(['/landing'])
   }
 
+  getUser(){
+    this.user=window.localStorage.getItem("user");
+  }
+
   ngOnInit(): void {
+    setInterval(this.getUser.bind(this), 600)
   }
 
 }

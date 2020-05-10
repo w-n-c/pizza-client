@@ -29,10 +29,12 @@
   <div class="headerimgs endingheaders">
     <div class="middle">
     <img class="image" src="../../../assets/images/lastword.png">
-      <button (click)="orderNow()" type="button" class="btn btn-secondary">
-        logout!!!
-      </button>
+        <button *ngIf="user" (click)="logout()" type="button" class="btn btn-secondary">
+          Logout
+        </button>
+        <button *ngIf="!user" (click)="logout()" type="button" class="btn btn-secondary">
+          Login
+        </button>
     </div>
   </div>
-
 </div>
