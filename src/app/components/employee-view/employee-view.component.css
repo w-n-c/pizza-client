@@ -20,8 +20,13 @@ li {
 }
 
 .component {
-    height: 100vh;
+height: calc(100vh - 175px);
 }
+
+nav li {
+    cursor: pointer;
+}
+
 
 .view {
     display: grid;

@@ -13,7 +13,6 @@ export class EmployeeViewComponent implements OnInit {
   stringSort(f:string, s:string) {
     return f.localeCompare(s)
   }
-  // TODO: sort by date and create Models
   pendStatus:string = 'pending'
   prepStatus:string = 'preparing'
   doneStatus:string = 'done'
@@ -22,6 +21,9 @@ export class EmployeeViewComponent implements OnInit {
   preparing:Array<Ticket> = [];
   done:Array<Ticket> = [];
   baking:Array<Ticket> = [];
+  log:Array<Ticket> = [];
+
+  view:boolean = true;
 
   async getTickets() {
     const input = await this.api.getTickets();
@@ -29,6 +31,7 @@ export class EmployeeViewComponent implements OnInit {
     this.preparing = new Array();
     this.done = new Array();
     this.baking = new Array();
+    this.log = new Array()
     input.sort((first, second) => new Date(first.placementTime).getTime() - new Date(second.placementTime).getTime())
     input.forEach(el => {
       el.pizzas.sort((f, s) => f.id - s.id)
@@ -37,9 +40,14 @@ export class EmployeeViewComponent implements OnInit {
         case "pending": this.pending.push(el); break;
         case "preparing":this.preparing.push(el); break;
         case "baking":this.baking.push(el); break;
-        case "done":this.done.push(el); break;
+        case "done":this.done.push(el); this.log.push(el); break;
       }
     })
+    this.done.reverse();
+  }
+
+  setView(view:boolean) {
+    this.view = view;
   }
   
 
