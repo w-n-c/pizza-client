@@ -10,6 +10,10 @@ nav ul {
     margin: 0;
 }
 
+.tickets {
+    padding-left: 1vw;
+}
+
 li {
     list-style-type: none;
     margin: 1vh 1vw 0 1vw;
@@ -20,7 +24,7 @@ li {
 }
 
 .component {
-height: calc(100vh - 175px);
+    height: calc(100vh - 120px);
 }
 
 nav li {
