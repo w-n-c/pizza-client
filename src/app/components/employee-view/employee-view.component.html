@@ -1,8 +1,8 @@
 <div class="component">
     <header>
-        <nav><ul><li>current orders</li><li>order history</li></ul></nav>
+        <nav><ul><li (click)="setView(true)">current orders</li><li (click)="setView(false)">order history</li></ul></nav>
     </header>
-    <article class="view">
+    <article *ngIf="view else history" class="view">
         <article class="tickets" *ngIf="pending.length > 0 else loading">
             <h3 class="status-header">pending</h3>
             <article *ngFor="let ticket of pending" class="ticket">
@@ -15,13 +15,13 @@
                 <app-preparing-view [ticket]="ticket"></app-preparing-view>
             </article>
         </article>
-        <article class="tickets" *ngIf="preparing.length > 0 else loading">
+        <article class="tickets" *ngIf="baking.length > 0 else loading">
             <h3 class="status-header">baking</h3>
             <article *ngFor="let ticket of baking" class="ticket">
                 <app-baking-view [ticket]="ticket"></app-baking-view>
             </article>
         </article>
-        <article class="tickets" *ngIf="preparing.length > 0 else loading">
+        <article class="tickets" *ngIf="done.length > 0 else loading">
             <h3 class="status-header">done</h3>
             <article *ngFor="let ticket of done" class="ticket">
                 <app-done-view [ticket]="ticket"></app-done-view>
@@ -31,4 +31,12 @@
 </div>
 <ng-template #loading>
     <div class="loading">Loading...</div>
+</ng-template>
+<ng-template #history>
+    <article class="tickets" *ngIf="log.length > 0 else loading">
+        <h3 class="status-header">done</h3>
+        <article *ngFor="let ticket of log" class="ticket">
+            <app-done-view [ticket]="ticket"></app-done-view>
+        </article>
+    </article>
 </ng-template>
