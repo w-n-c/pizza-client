@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from 'src/app/models/user';
+import {User} from 'src/app/models/user';                
 import {Ticket} from 'src/app/models/ticket';
 import {Topping} from 'src/app/models/topping'
 
@@ -11,8 +11,8 @@ export class ApiServiceService {
 
   constructor(private http:HttpClient) { }
 
-  //path:string = 'http://ec2-3-86-26-45.compute-1.amazonaws.com:9000'
-  path:string = 'http://localhost:9000'
+  path:string = 'http://ec2-3-86-26-45.compute-1.amazonaws.com:9000'
+  // path:string = 'http://localhost:9000'
 
   getUser(username:string, password:string):Promise<User>{
     return this.http.post<User>(this.path+`/users/login`, {username, password}).toPromise();
