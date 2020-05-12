@@ -116,7 +116,7 @@ export class PizzaOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchToppingList();
-
   }
-
+  
 }
+
