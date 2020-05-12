@@ -11,7 +11,8 @@ export class ApiServiceService {
 
   constructor(private http:HttpClient) { }
 
-  path:string = 'http://ec2-3-86-26-45.compute-1.amazonaws.com:9000'
+  //path:string = 'http://ec2-3-86-26-45.compute-1.amazonaws.com:9000'
+  path:string = 'http://localhost:9000'
 
   getUser(username:string, password:string):Promise<User>{
     return this.http.post<User>(this.path+`/users/login`, {username, password}).toPromise();
@@ -35,7 +36,7 @@ export class ApiServiceService {
   }
 
   getTicketsbyusername(username:string):Promise<Ticket[]> {
-    return this.http.post<Ticket[]>(this.path+`/tickets/user/${username}`, username).toPromise();
+    return this.http.get<Ticket[]>(this.path+`/user/${username}/tickets`).toPromise();
   }
 
   getToppings():Promise<Topping[]>{
@@ -43,7 +44,7 @@ export class ApiServiceService {
   }
 
   updateTicket(ticket:Ticket):Promise<Ticket> {
-    return this.http.post<Ticket>(this.path+`/tickets/${ticket.id}`, ticket).toPromise();
+    return this.http.patch<Ticket>(this.path+`/tickets/${ticket.id}`, ticket).toPromise();
   }
 
   getToppingCount():Promise<any> {
