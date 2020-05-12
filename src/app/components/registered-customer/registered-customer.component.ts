@@ -1,4 +1,4 @@
-import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoader, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { Ticket } from 'src/app/models/ticket';
@@ -10,11 +10,11 @@ import { interval, Subscription} from 'rxjs';
   templateUrl: './registered-customer.component.html',
   styleUrls: ['./registered-customer.component.css']
 })
-export class RegisteredCustomerComponent implements OnInit {
+export class RegisteredCustomerComponent implements OnInit, OnDestroy {
 
   constructor(private router:Router, private api:ApiServiceService) { }
+  
   ticketlist:Array<Ticket> = [];
- 
   mySubscrption: Subscription;
 
   logout() {
@@ -47,5 +47,8 @@ export class RegisteredCustomerComponent implements OnInit {
     this.mySubscrption= interval(1000).subscribe((x => {this.getUserOrders()}));
     //this.getUserOrders();
   }
-
+  
+  ngOnDestroy(): void {
+    this.mySubscrption.unsubscribe()
+  }
 }

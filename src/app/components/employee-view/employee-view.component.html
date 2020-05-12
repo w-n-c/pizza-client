@@ -1,8 +1,40 @@
 <div class="component">
     <header>
-        <nav><ul><li (click)="setView(true)">current orders</li><li (click)="setView(false)">order history</li></ul></nav>
+        <nav><ul>
+            <li (click)="setView('orders')">current orders</li>
+            <li (click)="setView('history')">order history</li>
+            <li (click)="setView('chart')">toppings chart</li>
+        </ul></nav>
     </header>
-    <article *ngIf="view else history" class="view">
+    <ng-container [ngSwitch]="view">
+        <ng-container *ngSwitchCase="'orders'">
+            <ng-container *ngTemplateOutlet="order"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'history'">
+            <ng-container *ngTemplateOutlet="history"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'chart'">
+            <ng-container *ngTemplateOutlet="chart"></ng-container>
+        </ng-container>
+    </ng-container>
+</div>
+
+<ng-template #loading>
+    <div class="loading">Loading...</div>
+</ng-template>
+<ng-template #history>
+    <article class="tickets" *ngIf="log.length > 0 else loading">
+        <h3 class="status-header">Order History</h3>
+        <article *ngFor="let ticket of log" class="ticket">
+            <app-done-view [ticket]="ticket"></app-done-view>
+        </article>
+    </article>
+</ng-template>
+<ng-template #chart>
+    <app-chart></app-chart>
+</ng-template>
+<ng-template #order>
+    <article class="view">
         <article class="tickets" *ngIf="pending.length > 0 else loading">
             <h3 class="status-header">pending</h3>
             <article *ngFor="let ticket of pending" class="ticket">
@@ -26,17 +58,6 @@
             <article *ngFor="let ticket of done" class="ticket">
                 <app-done-view [ticket]="ticket"></app-done-view>
             </article>
-        </article>
-    </article>
-</div>
-<ng-template #loading>
-    <div class="loading">Loading...</div>
-</ng-template>
-<ng-template #history>
-    <article class="tickets" *ngIf="log.length > 0 else loading">
-        <h3 class="status-header">Order History</h3>
-        <article *ngFor="let ticket of log" class="ticket">
-            <app-done-view [ticket]="ticket"></app-done-view>
         </article>
     </article>
 </ng-template>

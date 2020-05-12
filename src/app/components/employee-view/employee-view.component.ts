@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 
@@ -7,12 +7,14 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
   templateUrl: './employee-view.component.html',
   styleUrls: ['./employee-view.component.css']
 })
-export class EmployeeViewComponent implements OnInit {
+export class EmployeeViewComponent implements OnInit, OnDestroy {
 
   constructor(private api:ApiServiceService) { }
   stringSort(f:string, s:string) {
     return f.localeCompare(s)
   }
+  private interval;
+  view:string = 'orders';
   pendStatus:string = 'pending'
   prepStatus:string = 'preparing'
   doneStatus:string = 'done'
@@ -23,7 +25,6 @@ export class EmployeeViewComponent implements OnInit {
   baking:Array<Ticket> = [];
   log:Array<Ticket> = [];
 
-  view:boolean = true;
 
   async getTickets() {
     const input = await this.api.getTickets();
@@ -46,14 +47,15 @@ export class EmployeeViewComponent implements OnInit {
     this.done.reverse();
   }
 
-  setView(view:boolean) {
+  setView(view:string) {
     this.view = view;
   }
   
-
   ngOnInit(): void {
-    setInterval(this.getTickets.bind(this), 1000)
+    this.interval = setInterval(this.getTickets.bind(this), 1000)
   }
 
-
+  ngOnDestroy(): void {
+    clearInterval(this.interval)
+  }
 }
