@@ -1,9 +1,9 @@
 .landing {
   height: 87.5vh;
   width: 100%;
-  /*background: url(../../../assets/images/DB.jpg);*/
+  /*background: url(https://revolver-joe.s3.us-east-2.amazonaws.com/DB.jpg);*/
     /*background-color: burlywood;*/
-  background-image: url(../../../assets/images/Red.jpg);
+  background-image: url(https://revolver-joe.s3.us-east-2.amazonaws.com/Red.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -17,7 +17,7 @@
 }
 
 .showdown-board > * {
-  background-image: url(../../../assets/images/grungy-rough-old-worn-parchment-paper.jpg);
+  background-image: url(https://revolver-joe.s3.us-east-2.amazonaws.com/grungy-rough-old-worn-parchment-paper.jpg);
   padding: 3vh;
 }
 

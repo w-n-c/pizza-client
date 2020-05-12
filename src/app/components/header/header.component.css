@@ -9,7 +9,7 @@
 }
 
 .column2 {
-  background-image: url(../../../assets/images/header.jpg);
+  background-image: url(https://revolver-joe.s3.us-east-2.amazonaws.com/header.jpg);
   background-size: cover;
   width: 100%;
   display: flex;
